@@ -6,25 +6,27 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 
 class FakeMicrowave : IMicrowave {
-    private var heaterOn = false
+
+    private val _doorStatusChanged = MutableSharedFlow<Boolean>()
+    private val _startButtonPressed = MutableSharedFlow<Unit>()
+
     private var doorOpen = false
+    var isHeaterOn = false
+    private set
+
+            override fun isDoorOpen(): Boolean = doorOpen
 
     override fun turnOnHeater() {
-        println("[Microwave] Heater ON")
-        heaterOn = true
+        isHeaterOn = true
+        println("Heater turned ON")
     }
 
     override fun turnOffHeater() {
-        println("[Microwave] Heater OFF")
-        heaterOn = false
+        isHeaterOn = false
+        println("Heater turned OFF")
     }
 
-    override fun isDoorOpen(): Boolean = doorOpen
-
-    private val _doorStatusChanged = MutableSharedFlow<Boolean>()
     override val doorStatusChanged: SharedFlow<Boolean> = _doorStatusChanged
-
-    private val _startButtonPressed = MutableSharedFlow<Unit>()
     override val startButtonPressed: SharedFlow<Unit> = _startButtonPressed
 
     suspend fun simulateDoorChange(isOpen: Boolean) {

@@ -4,7 +4,7 @@ import com.tokheim.microwaveovenproject.interfaces.IMicrowave
 
 
 // IMPLEMENTATION OF USE CASE
-class MicrowaveUseCaseImpl(
+open class MicrowaveUseCaseImpl(
     private val microwave: IMicrowave
 ) : MicrowaveUseCase {
 
