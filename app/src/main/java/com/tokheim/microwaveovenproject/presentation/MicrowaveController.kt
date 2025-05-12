@@ -1,7 +1,5 @@
 package com.tokheim.microwaveovenproject.presentation
 
-//  PRESENTATION LAYER (MicrowaveController
-
 import com.tokheim.microwaveovenproject.domain.MicrowaveUseCase
 import com.tokheim.microwaveovenproject.interfaces.IMicrowave
 import kotlinx.coroutines.CoroutineScope
@@ -33,7 +31,6 @@ class MicrowaveController(
         }
     }
 
-    // provide a cancel method for manual lifecycle management
     fun cancel() {
         scope.cancel()
     }

@@ -40,6 +40,6 @@ class MicrowaveUnitTest {
 
         microwave.simulateDoorChange(true)
 
-        delay(100) // Allow coroutines to process
+        delay(100)
     }
 }

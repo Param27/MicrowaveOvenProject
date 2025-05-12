@@ -1,6 +1,6 @@
 package com.tokheim.microwaveovenproject.interfaces
 
-// INTERFACE FROM GIVEN
+// GIVEN INTERFACE
 import kotlinx.coroutines.flow.SharedFlow
 
 interface IMicrowave {
